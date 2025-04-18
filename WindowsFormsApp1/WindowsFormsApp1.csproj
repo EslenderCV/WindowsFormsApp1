@@ -52,6 +52,12 @@
     <Compile Include="Consultas.Designer.cs">
       <DependentUpon>Consultas.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsultasModelos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultasModelos.Designer.cs">
+      <DependentUpon>ConsultasModelos.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConultaMarcas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,8 +90,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="usuariosMantenimientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usuariosMantenimientos.Designer.cs">
+      <DependentUpon>usuariosMantenimientos.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Consultas.resx">
       <DependentUpon>Consultas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultasModelos.resx">
+      <DependentUpon>ConsultasModelos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConultaMarcas.resx">
       <DependentUpon>ConultaMarcas.cs</DependentUpon>
@@ -112,6 +127,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="usuariosMantenimientos.resx">
+      <DependentUpon>usuariosMantenimientos.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -199,6 +217,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="src\image14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\clientess.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\vehicles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\offers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\offers2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

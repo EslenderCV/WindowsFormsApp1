@@ -77,8 +77,10 @@ namespace WindowsFormsApp1
 
         public void openForm(object from)
         {
-            if (this.panel3.Controls.Count > 0)
+            if (this.panel3.Controls.Count > 0) {
                 this.panel3.Controls.RemoveAt(0);
+            }
+
             Form f = from as Form;
             f.TopLevel = false;
             f.Dock = DockStyle.Fill;
@@ -89,7 +91,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            openForm(new Mantenimientos());
+            openForm(new Mantenimientos(this));
         }
 
         private void level_Click(object sender, EventArgs e)
@@ -99,7 +101,7 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            openForm(new Movimientos());
+            openForm(new Movimientos(this));
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -110,6 +112,13 @@ namespace WindowsFormsApp1
         private void button3_Click(object sender, EventArgs e)
         {
             openForm(new Consultas(this));
+        }
+
+        public void addBackToPanel(Form winForm)
+        {
+            this.panel3.Controls.Add(panel5);
+
+            winForm.Close();
         }
     }
 }

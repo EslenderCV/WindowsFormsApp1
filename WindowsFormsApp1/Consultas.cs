@@ -26,7 +26,12 @@ namespace WindowsFormsApp1
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            this.Close();
+            screen.addBackToPanel(this);
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            screen.openForm(new ConsultasModelos(screen));
         }
     }
 }
