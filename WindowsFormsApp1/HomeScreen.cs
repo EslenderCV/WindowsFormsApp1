@@ -55,6 +55,62 @@ namespace WindowsFormsApp1
             DateTime dateTime = DateTime.UtcNow.Date;
             time.Text = dateTime.ToString("dd/MM/yyyy");
 
+            label4.Text = getClientesQty();
+            label5.Text = getVehiculosDiponiblesQty();
+        }
+
+        private string getClientesQty()
+        {
+            string cantidad = "0";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand($"SELECT COUNT(id_cliente) FROM Clientes", conn);
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    cantidad = count.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+
+            return cantidad;
+        }
+
+        private string getVehiculosDiponiblesQty()
+        {
+            string cantidad = "0";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand($"SELECT COUNT(id_vehiculo) FROM Vehiculos WHERE estado = 'Y'", conn);
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    cantidad = count.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+
+            return cantidad;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -119,6 +175,11 @@ namespace WindowsFormsApp1
             this.panel3.Controls.Add(panel5);
 
             winForm.Close();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
