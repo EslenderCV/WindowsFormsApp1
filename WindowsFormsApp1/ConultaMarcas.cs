@@ -52,6 +52,9 @@ namespace WindowsFormsApp1
             screen.openForm(new Consultas(screen));
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
     }
 }

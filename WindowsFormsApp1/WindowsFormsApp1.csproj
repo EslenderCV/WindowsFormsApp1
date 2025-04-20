@@ -82,6 +82,12 @@
     <Compile Include="Mantenimientos.Designer.cs">
       <DependentUpon>Mantenimientos.cs</DependentUpon>
     </Compile>
+    <Compile Include="marcasMantenimientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="marcasMantenimientos.Designer.cs">
+      <DependentUpon>marcasMantenimientos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Movimientos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos.resx">
       <DependentUpon>Mantenimientos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="marcasMantenimientos.resx">
+      <DependentUpon>marcasMantenimientos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Movimientos.resx">
       <DependentUpon>Movimientos.cs</DependentUpon>

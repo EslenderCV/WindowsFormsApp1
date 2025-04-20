@@ -96,7 +96,7 @@ namespace WindowsFormsApp1
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand($"SELECT COUNT(id_vehiculo) FROM Vehiculos WHERE estado = 'Y'", conn);
+                    SqlCommand cmd = new SqlCommand($"SELECT COUNT(id_vehiculo) FROM Vehiculos WHERE estado = 'Disponible'", conn);
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
                     cantidad = count.ToString();
                 }

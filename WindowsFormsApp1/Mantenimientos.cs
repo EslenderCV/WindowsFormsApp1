@@ -57,5 +57,26 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Form formBckg = new Form();
+
+            using (marcasMantenimientos modal = new marcasMantenimientos())
+            {
+                formBckg.StartPosition = FormStartPosition.Manual;
+                formBckg.FormBorderStyle = FormBorderStyle.None;
+                formBckg.Opacity = .50d;
+                formBckg.BackColor = Color.Black;
+                formBckg.Size = screeen.Size;
+                formBckg.Location = screeen.Location;
+                formBckg.ShowInTaskbar = false;
+                formBckg.Show();
+
+                modal.Owner = formBckg;
+                modal.ShowDialog();
+                formBckg.Dispose();
+            }
+        }
     }
 }
