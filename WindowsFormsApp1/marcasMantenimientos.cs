@@ -114,5 +114,10 @@ namespace WindowsFormsApp1
             editing = true;
             editingID = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
         }
+
+        private void marcasMantenimientos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

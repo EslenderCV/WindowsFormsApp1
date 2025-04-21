@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -24,23 +18,7 @@ namespace WindowsFormsApp1
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Form formBckg = new Form();
-
-            using (usuariosMantenimientos modal = new usuariosMantenimientos())
-            {
-                formBckg.StartPosition = FormStartPosition.Manual;
-                formBckg.FormBorderStyle = FormBorderStyle.None;
-                formBckg.Opacity = .50d;
-                formBckg.BackColor = Color.Black;
-                formBckg.Size = screeen.Size;
-                formBckg.Location = screeen.Location;
-                formBckg.ShowInTaskbar = false;
-                formBckg.Show();
-
-                modal.Owner = formBckg;
-                modal.ShowDialog();
-                formBckg.Dispose();
-            }
+            openForm(new usuariosMantenimientos());
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -60,9 +38,19 @@ namespace WindowsFormsApp1
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            openForm(new marcasMantenimientos());
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            openForm(new modelosMantenimientos());
+        }
+
+        private void openForm(Form f)
+        {
             Form formBckg = new Form();
 
-            using (marcasMantenimientos modal = new marcasMantenimientos())
+            using (f)
             {
                 formBckg.StartPosition = FormStartPosition.Manual;
                 formBckg.FormBorderStyle = FormBorderStyle.None;
@@ -73,8 +61,8 @@ namespace WindowsFormsApp1
                 formBckg.ShowInTaskbar = false;
                 formBckg.Show();
 
-                modal.Owner = formBckg;
-                modal.ShowDialog();
+                f.Owner = formBckg;
+                f.ShowDialog();
                 formBckg.Dispose();
             }
         }

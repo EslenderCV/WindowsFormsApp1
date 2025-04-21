@@ -1,29 +1,61 @@
 ﻿using System;
-using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class ConsultasModelos: Form
+    public partial class modelosMantenimientos: Form
     {
+
         string connectionString = "Data Source=DESKTOP-I9FPIBD;Initial Catalog=RentACar;Integrated Security=True";
+        bool editing = false;
+        int editingID;
 
-        private HomeScreen screen;
-
-        public ConsultasModelos(HomeScreen screenn)
+        public modelosMantenimientos()
         {
             InitializeComponent();
+            loadmodelosData();
 
-            screen = screenn;
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM Marcas", conn))
+                    {
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+
+                            comboBox1.Items.Add($"{reader["id_marca"]}.{reader["nombre_marca"]}");
+
+                        }
+
+                        reader.Close();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+
+                }
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            screen.openForm(new Consultas(screen));
+
         }
 
-        private void ConsultasModelos_Load(object sender, EventArgs e)
+        private void loadmodelosData()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -97,19 +129,23 @@ namespace WindowsFormsApp1
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void pictureBox3_Click(object sender, EventArgs e)
         {
-            screen.openForm(new Consultas(screen));
+            this.Close();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-
+            name.Text = dataGridView1.SelectedCells[1].Value.ToString();
+            state.SelectedIndex = dataGridView1.SelectedCells[2].Value.ToString() == "Y" ? 0 : 1;
+            comboBox1.SelectedItem = "Honda";
+            editing = true;
+            editingID = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
         }
     }
 }
