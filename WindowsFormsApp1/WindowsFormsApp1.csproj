@@ -108,6 +108,12 @@
     <Compile Include="usuariosMantenimientos.Designer.cs">
       <DependentUpon>usuariosMantenimientos.cs</DependentUpon>
     </Compile>
+    <Compile Include="vehiculosMantenimientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vehiculosMantenimientos.Designer.cs">
+      <DependentUpon>vehiculosMantenimientos.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Consultas.resx">
       <DependentUpon>Consultas.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +153,9 @@
     </Compile>
     <EmbeddedResource Include="usuariosMantenimientos.resx">
       <DependentUpon>usuariosMantenimientos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vehiculosMantenimientos.resx">
+      <DependentUpon>vehiculosMantenimientos.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

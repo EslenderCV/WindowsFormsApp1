@@ -66,5 +66,10 @@ namespace WindowsFormsApp1
                 formBckg.Dispose();
             }
         }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            openForm(new vehiculosMantenimientos());
+        }
     }
 }
