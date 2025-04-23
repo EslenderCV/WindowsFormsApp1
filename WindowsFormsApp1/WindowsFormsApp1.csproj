@@ -58,6 +58,12 @@
     <Compile Include="ConsultasModelos.Designer.cs">
       <DependentUpon>ConsultasModelos.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsultasVehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultasVehiculos.Designer.cs">
+      <DependentUpon>ConsultasVehiculos.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConultaMarcas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultasModelos.resx">
       <DependentUpon>ConsultasModelos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultasVehiculos.resx">
+      <DependentUpon>ConsultasVehiculos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConultaMarcas.resx">
       <DependentUpon>ConultaMarcas.cs</DependentUpon>

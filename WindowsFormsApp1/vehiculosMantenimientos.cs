@@ -66,7 +66,7 @@ namespace WindowsFormsApp1
                 string.IsNullOrEmpty(placa) || string.IsNullOrEmpty(color) || string.IsNullOrEmpty(tipo) || string.IsNullOrEmpty(precio) ||
                 string.IsNullOrEmpty(estado) || string.IsNullOrEmpty(km)))
             {
-                insertVehiculo(name.Text, state.Text, type.Text);
+                insertVehiculo(marca, modelo, yearr, chasis, placa, color, tipo, precio, estado, km);
             }
             else
             {
@@ -74,7 +74,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void insertVehiculo(string namee, string statee, string marca)
+        private void insertVehiculo(string marca, string modelo, string yearr, string chasis, string placa, string color, string tipo, string precio, string estado, string km)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -83,20 +83,25 @@ namespace WindowsFormsApp1
                     conn.Open();
 
                     int marcas = Convert.ToInt32(marca.Split('.')[0]);
+                    int modelos = Convert.ToInt32(modelo.Split('.')[0]);
+                    int ann = Convert.ToInt32(yearr);
+                    decimal dec = Convert.ToDecimal(precio);
+                    int kim = Convert.ToInt32(km);
 
+                    string insert = $"INSERT INTO Vehiculos VALUES({marcas}, {modelos}, {ann}, '{chasis}', '{placa}', '{color}', '{tipo}', {dec}, '{estado}', {kim})";
+                    string update = $"UPDATE Vehiculos SET marca = {marcas}, modelo = {modelos}, año = {ann}, chasis = '{chasis}', placa = '{placa}', color = '{color}', " +
+                        $"tipo_vehiculo = '{tipo}', precio_diario = {dec}, estado = '{estado}', kilometraje = {kim} WHERE id_vehiculo = {editingID}";
 
-                    string insert = $"INSERT INTO Modelos VALUES('{namee}', '{statee}', {Convert.ToInt32(marcas)})";
-                    string update = $"UPDATE Modelos SET nombre_modelo = '{namee}', estado = '{statee}', id_marca={marcas} WHERE id_modelo = {editingID}";
                     string messs = editing ? "actualizado" : "ingresado";
 
                     SqlCommand cmd = new SqlCommand(editing ? update : insert, conn);
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show($"Modelo {messs} correctamente!");
+                    MessageBox.Show($"Vehiculo {messs} correctamente!");
                     Clear();
                     dataGridView1.Rows.Clear();
                     dataGridView1.Refresh();
-                    loadmodelosData();
+                    loadGridView();
                 }
                 catch (Exception ex)
                 {
@@ -105,11 +110,26 @@ namespace WindowsFormsApp1
                 finally
                 {
                     conn.Close();
-                    editing = false;
                 }
 
 
             }
+        }
+
+        private void Clear()
+        {
+            marcas.SelectedIndex = 0;
+            chas.Clear();
+            year.Clear();
+            plate.Clear();
+            colorr.Clear();
+            type.SelectedIndex = 0;
+            price.Clear();
+            state.SelectedIndex = 0;
+            kilom.Clear();
+            editing = false;
+            editingID = 0;
+
         }
 
         private string getMarca(int ID)
@@ -226,37 +246,41 @@ namespace WindowsFormsApp1
         {
             modelos.Items.Clear();
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            if (!string.IsNullOrEmpty(marcas.Text))
             {
-                try
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    conn.Open();
-
-                    using (SqlCommand cmd = new SqlCommand($"SELECT * FROM Modelos WHERE id_marca = {Convert.ToInt32(marcas.Text.Split('.')[0])}", conn))
+                    try
                     {
-                        SqlDataReader reader = cmd.ExecuteReader();
+                        conn.Open();
 
-                        while (reader.Read())
+                        using (SqlCommand cmd = new SqlCommand($"SELECT * FROM Modelos WHERE id_marca = {Convert.ToInt32(marcas.Text.Split('.')[0])}", conn))
                         {
+                            SqlDataReader reader = cmd.ExecuteReader();
 
-                            modelos.Items.Add($"{reader["id_modelo"]}.{reader["nombre_modelo"]}");
+                            while (reader.Read())
+                            {
 
+                                modelos.Items.Add($"{reader["id_modelo"]}.{reader["nombre_modelo"]}");
+
+                            }
+
+                            reader.Close();
                         }
 
-                        reader.Close();
                     }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                    finally
+                    {
+                        conn.Close();
 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
-
+                    }
                 }
             }
+            
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -267,6 +291,11 @@ namespace WindowsFormsApp1
         private void vehiculosMantenimientos_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            Clear();
         }
     }
 }

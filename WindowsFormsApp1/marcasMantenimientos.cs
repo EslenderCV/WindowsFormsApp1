@@ -49,6 +49,7 @@ namespace WindowsFormsApp1
 
                     MessageBox.Show($"Marca {messs} correctamente!");
                     name.Text = "";
+                    state.SelectedIndex = 0;
                     dataGridView1.Rows.Clear();
                     dataGridView1.Refresh();
                     loadGridView();
@@ -71,6 +72,8 @@ namespace WindowsFormsApp1
         {
             name.Text = "";
             state.SelectedIndex = 0;
+            editing = false;
+            editingID = 0;
         }
 
         private void loadGridView()
@@ -111,7 +114,7 @@ namespace WindowsFormsApp1
         private void label1_Click(object sender, EventArgs e)
         {
             name.Text = dataGridView1.SelectedCells[1].Value.ToString();
-            state.SelectedIndex = dataGridView1.SelectedCells[2].Value.ToString() == "Y" ? 0 : 1;
+            state.SelectedIndex = dataGridView1.SelectedCells[2].Value.ToString() == "Y" ? 1 : 2;
             editing = true;
             editingID = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
         }

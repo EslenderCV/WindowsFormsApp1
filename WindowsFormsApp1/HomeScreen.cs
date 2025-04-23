@@ -2,9 +2,6 @@
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Data;
-using System.Drawing;
-using System.Reflection.Emit;
-using System.Xml.Linq;
 
 namespace WindowsFormsApp1
 {
@@ -147,7 +144,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            openForm(new Mantenimientos(this));
+            openForm(new Mantenimientos(this, access));
         }
 
         private void level_Click(object sender, EventArgs e)

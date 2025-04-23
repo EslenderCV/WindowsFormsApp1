@@ -8,9 +8,15 @@ namespace WindowsFormsApp1
     {
         HomeScreen screeen;
 
-        public Mantenimientos(HomeScreen N)
+        public Mantenimientos(HomeScreen N, string access)
         {
             InitializeComponent();
+
+            if (access == "Estandar")
+            {
+                panel2.Controls.Remove(pictureBox1);
+                panel2.Controls.Remove(label2);
+            }
 
             screeen = N;
         }
