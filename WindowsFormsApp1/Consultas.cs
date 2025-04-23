@@ -33,5 +33,15 @@ namespace WindowsFormsApp1
         {
             screen.openForm(new ConsultasModelos(screen));
         }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            screen.openForm(new ConsultasVehiculos(screen));
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            screen.openForm(new ConsultasClientes(screen));
+        }
     }
 }

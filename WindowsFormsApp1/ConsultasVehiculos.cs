@@ -14,8 +14,11 @@ namespace WindowsFormsApp1
     public partial class ConsultasVehiculos: Form
     {
         string connectionString = "Data Source=DESKTOP-I9FPIBD;Initial Catalog=RentACar;Integrated Security=True";
-        public ConsultasVehiculos()
+        private HomeScreen screen;
+
+        public ConsultasVehiculos(HomeScreen screeen)
         {
+            screen = screeen;
             InitializeComponent();
             loadGridView();
         }
@@ -132,7 +135,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            screen.openForm(new Consultas(screen));
         }
 
         private void price_KeyPress(object sender, KeyPressEventArgs e)

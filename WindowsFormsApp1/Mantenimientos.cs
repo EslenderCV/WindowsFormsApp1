@@ -77,5 +77,10 @@ namespace WindowsFormsApp1
         {
             openForm(new vehiculosMantenimientos());
         }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            openForm(new clientesMantenimientos());
+        }
     }
 }
