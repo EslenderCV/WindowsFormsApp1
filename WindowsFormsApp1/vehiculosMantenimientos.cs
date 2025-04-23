@@ -297,5 +297,43 @@ namespace WindowsFormsApp1
         {
             Clear();
         }
+
+        private void year_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void price_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void kilom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            year.Text = dataGridView1.SelectedCells[3].Value.ToString();
+            chas.Text = dataGridView1.SelectedCells[4].Value.ToString();
+            plate.Text = dataGridView1.SelectedCells[5].Value.ToString();
+            colorr.Text = dataGridView1.SelectedCells[6].Value.ToString();
+            type.SelectedItem = dataGridView1.SelectedCells[7].Value.ToString();
+            price.Text = dataGridView1.SelectedCells[8].Value.ToString();
+            state.SelectedItem = dataGridView1.SelectedCells[9].Value.ToString();
+            kilom.Text = dataGridView1.SelectedCells[10].Value.ToString();
+            editing = true;
+            editingID = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
+        }
     }
 }
