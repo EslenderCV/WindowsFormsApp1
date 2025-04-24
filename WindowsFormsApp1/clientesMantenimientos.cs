@@ -1,9 +1,8 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Drawing;
+using System.Globalization;
 using System.Windows.Forms;
-using static System.Windows.Forms.AxHost;
 
 namespace WindowsFormsApp1
 {
@@ -34,7 +33,7 @@ namespace WindowsFormsApp1
                         while (reader.Read())
                         {
                             dataGridView1.Rows.Add(reader["id_cliente"], reader["nombre"], reader["email"], reader["telefono"], 
-                                reader["direccion"], reader["fecha_nacimiento"], reader["tipo_documento"], reader["numero_documento"]);
+                                reader["direccion"], reader["fecha_nacimiento"].ToString().Split(' ')[0], reader["tipo_documento"], reader["num_documento"]);
                         }
                     }
 
@@ -75,11 +74,11 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string date = birthDate.Text;
             string nombre = name.Text;
             string email = eaddress.Text;
             string number = phonenum.Text;
             string add = address.Text;
-            string date = birthDate.Text;
             string docuType = type.Text;
             string docNumber = docNum.Text;
 
@@ -102,9 +101,9 @@ namespace WindowsFormsApp1
                 {
                     conn.Open();
 
-                    string insert = $"INSERT INTO Clientes VALUES({nombre}, {email}, {number}, '{add}', '{date}', '{docuType}', '{docNumber}')";
-                    string update = $"UPDATE Clientes SET nombre = {nombre}, email = {email}, telefono = {number}, direccion = '{add}', " +
-                        $"fecha_nacimiento = '{date}', tipo_documento = '{docuType}', numero_documento = '{docNumber}' WHERE id_cliente = {editingID}";
+                    string insert = $"INSERT INTO Clientes VALUES('{nombre}', '{email}', '{number}', '{add}', '{date}', '{docuType}', '{docNumber}')";
+                    string update = $"UPDATE Clientes SET nombre = '{nombre}', email = '{email}', telefono = '{number}', direccion = '{add}', " +
+                        $"fecha_nacimiento = '{date}', tipo_documento = '{docuType}', num_documento = '{docNumber}' WHERE id_cliente = {editingID}";
 
                     string messs = editing ? "actualizado" : "ingresado";
 

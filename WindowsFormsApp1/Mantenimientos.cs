@@ -16,6 +16,10 @@ namespace WindowsFormsApp1
             {
                 panel2.Controls.Remove(pictureBox1);
                 panel2.Controls.Remove(label2);
+                panel2.Controls.Remove(pictureBox7);
+                panel2.Controls.Remove(label8);
+                panel2.Controls.Remove(pictureBox4);
+                panel2.Controls.Remove(label5);
             }
 
             screeen = N;
@@ -81,6 +85,11 @@ namespace WindowsFormsApp1
         private void pictureBox6_Click(object sender, EventArgs e)
         {
             openForm(new clientesMantenimientos());
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            openForm(new ofertasMantenimientos());
         }
     }
 }

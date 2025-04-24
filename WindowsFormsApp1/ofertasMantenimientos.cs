@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using static System.Windows.Forms.AxHost;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Xml.Linq;
 
 namespace WindowsFormsApp1
 {
@@ -38,6 +41,11 @@ namespace WindowsFormsApp1
         {
             editing = true;
             editingID = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+ 
         }
     }
 }

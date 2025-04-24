@@ -59,7 +59,7 @@ namespace WindowsFormsApp1
             string color = colorr.Text;
             string tipo = type.Text;
             string precio = price.Text;
-            string estado = state.Text;
+            string estado = "Disponible";
             string km = kilom.Text;
 
             if (!(string.IsNullOrEmpty(marca) || string.IsNullOrEmpty(modelo) || string.IsNullOrEmpty(yearr) || string.IsNullOrEmpty(chasis) ||
@@ -125,7 +125,6 @@ namespace WindowsFormsApp1
             colorr.Clear();
             type.SelectedIndex = 0;
             price.Clear();
-            state.SelectedIndex = 0;
             kilom.Clear();
             editing = false;
             editingID = 0;
@@ -300,28 +299,27 @@ namespace WindowsFormsApp1
 
         private void year_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
+            OnlyNumer(e);
         }
 
         private void price_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
+            OnlyNumer(e);
         }
 
         private void kilom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            OnlyNumer(e);
+        }
+
+
+        private void OnlyNumer(KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
             }
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
             year.Text = dataGridView1.SelectedCells[3].Value.ToString();
@@ -330,7 +328,6 @@ namespace WindowsFormsApp1
             colorr.Text = dataGridView1.SelectedCells[6].Value.ToString();
             type.SelectedItem = dataGridView1.SelectedCells[7].Value.ToString();
             price.Text = dataGridView1.SelectedCells[8].Value.ToString();
-            state.SelectedItem = dataGridView1.SelectedCells[9].Value.ToString();
             kilom.Text = dataGridView1.SelectedCells[10].Value.ToString();
             editing = true;
             editingID = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
