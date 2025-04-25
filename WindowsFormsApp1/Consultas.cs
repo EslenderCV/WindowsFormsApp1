@@ -6,9 +6,11 @@ namespace WindowsFormsApp1
     public partial class Consultas : Form
     {
         private HomeScreen screen;
+        string access;
 
-        public Consultas(HomeScreen screenn)
+        public Consultas(HomeScreen screenn, string access = "Estandar")
         {
+            this.access = access;
             InitializeComponent();
             screen = screenn;
         }
@@ -42,6 +44,16 @@ namespace WindowsFormsApp1
         private void pictureBox6_Click(object sender, EventArgs e)
         {
             screen.openForm(new ConsultasClientes(screen));
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            screen.openForm(new ConsultasOfertas(screen));
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            screen.openForm(new ConsultasReservas(screen, access));
         }
     }
 }

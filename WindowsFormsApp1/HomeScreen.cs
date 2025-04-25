@@ -13,9 +13,10 @@ namespace WindowsFormsApp1
 
         string connectionString = "Data Source=DESKTOP-I9FPIBD;Initial Catalog=RentACar;Integrated Security=True";
 
-        public HomeScreen(string user)
+        Form1 log;
+        public HomeScreen(string user, Form1 log)
         {
-            
+            this.log = log;
 
             InitializeComponent();
 
@@ -54,6 +55,7 @@ namespace WindowsFormsApp1
 
             label4.Text = getClientesQty();
             label5.Text = getVehiculosDiponiblesQty();
+            label6.Text = getOfertasQty();
         }
 
         private string getClientesQty()
@@ -67,6 +69,33 @@ namespace WindowsFormsApp1
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand($"SELECT COUNT(id_cliente) FROM Clientes", conn);
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    cantidad = count.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+
+            return cantidad;
+        }
+
+        private string getOfertasQty()
+        {
+            string cantidad = "0";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand($"SELECT COUNT(id_oferta) FROM Ofertas WHERE limite_oferta > GETDATE()", conn);
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
                     cantidad = count.ToString();
                 }
@@ -144,7 +173,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            openForm(new Mantenimientos(this, access));
+            openForm(new Mantenimientos(this, access, log));
         }
 
         private void level_Click(object sender, EventArgs e)
@@ -164,7 +193,7 @@ namespace WindowsFormsApp1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            openForm(new Consultas(this));
+            openForm(new Consultas(this, access));
         }
 
         public void addBackToPanel(Form winForm)

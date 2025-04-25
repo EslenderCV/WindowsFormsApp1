@@ -70,6 +70,18 @@
     <Compile Include="ConsultasModelos.Designer.cs">
       <DependentUpon>ConsultasModelos.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsultasOfertas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultasOfertas.Designer.cs">
+      <DependentUpon>ConsultasOfertas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultasReservas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultasReservas.Designer.cs">
+      <DependentUpon>ConsultasReservas.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsultasVehiculos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +93,12 @@
     </Compile>
     <Compile Include="ConultaMarcas.Designer.cs">
       <DependentUpon>ConultaMarcas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion.Designer.cs">
+      <DependentUpon>Facturacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -100,6 +118,12 @@
     <Compile Include="Mantenimientos.Designer.cs">
       <DependentUpon>Mantenimientos.cs</DependentUpon>
     </Compile>
+    <Compile Include="mantMantenimientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mantMantenimientos.Designer.cs">
+      <DependentUpon>mantMantenimientos.cs</DependentUpon>
+    </Compile>
     <Compile Include="marcasMantenimientos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,11 +136,29 @@
     <Compile Include="modelosMantenimientos.Designer.cs">
       <DependentUpon>modelosMantenimientos.cs</DependentUpon>
     </Compile>
+    <Compile Include="MovimientoFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MovimientoFactura.Designer.cs">
+      <DependentUpon>MovimientoFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MovimientoReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MovimientoReserva.Designer.cs">
+      <DependentUpon>MovimientoReserva.cs</DependentUpon>
+    </Compile>
     <Compile Include="Movimientos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Movimientos.Designer.cs">
       <DependentUpon>Movimientos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MovimientosRecepcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MovimientosRecepcion.Designer.cs">
+      <DependentUpon>MovimientosRecepcion.cs</DependentUpon>
     </Compile>
     <Compile Include="ofertasMantenimientos.cs">
       <SubType>Form</SubType>
@@ -150,11 +192,20 @@
     <EmbeddedResource Include="ConsultasModelos.resx">
       <DependentUpon>ConsultasModelos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConsultasOfertas.resx">
+      <DependentUpon>ConsultasOfertas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultasReservas.resx">
+      <DependentUpon>ConsultasReservas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConsultasVehiculos.resx">
       <DependentUpon>ConsultasVehiculos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConultaMarcas.resx">
       <DependentUpon>ConultaMarcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion.resx">
+      <DependentUpon>Facturacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -165,14 +216,26 @@
     <EmbeddedResource Include="Mantenimientos.resx">
       <DependentUpon>Mantenimientos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="mantMantenimientos.resx">
+      <DependentUpon>mantMantenimientos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="marcasMantenimientos.resx">
       <DependentUpon>marcasMantenimientos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modelosMantenimientos.resx">
       <DependentUpon>modelosMantenimientos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MovimientoFactura.resx">
+      <DependentUpon>MovimientoFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MovimientoReserva.resx">
+      <DependentUpon>MovimientoReserva.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Movimientos.resx">
       <DependentUpon>Movimientos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MovimientosRecepcion.resx">
+      <DependentUpon>MovimientosRecepcion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ofertasMantenimientos.resx">
       <DependentUpon>ofertasMantenimientos.cs</DependentUpon>

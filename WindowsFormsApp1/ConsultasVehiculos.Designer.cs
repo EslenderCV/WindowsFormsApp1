@@ -33,6 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.price = new System.Windows.Forms.TextBox();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -46,10 +49,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,9 +60,10 @@
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -96,13 +96,37 @@
             this.panel2.Size = new System.Drawing.Size(1043, 545);
             this.panel2.TabIndex = 3;
             // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Red;
+            this.panel6.Location = new System.Drawing.Point(424, 111);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(151, 1);
+            this.panel6.TabIndex = 125;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.Red;
+            this.panel7.Location = new System.Drawing.Point(424, 111);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(179, 1);
+            this.panel7.TabIndex = 124;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Red;
+            this.panel4.Location = new System.Drawing.Point(226, 111);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(151, 1);
+            this.panel4.TabIndex = 123;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label12.Font = new System.Drawing.Font("MS PGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(821, 82);
+            this.label12.Location = new System.Drawing.Point(821, 116);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(87, 13);
             this.label12.TabIndex = 123;
@@ -113,17 +137,18 @@
             this.price.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.price.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.price.ForeColor = System.Drawing.Color.Red;
-            this.price.Location = new System.Drawing.Point(824, 53);
+            this.price.Location = new System.Drawing.Point(824, 87);
             this.price.Multiline = true;
             this.price.Name = "price";
             this.price.Size = new System.Drawing.Size(151, 22);
             this.price.TabIndex = 121;
+            this.price.TextChanged += new System.EventHandler(this.price_TextChanged);
             this.price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.price_KeyPress);
             // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.Red;
-            this.panel10.Location = new System.Drawing.Point(824, 77);
+            this.panel10.Location = new System.Drawing.Point(824, 111);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(151, 1);
             this.panel10.TabIndex = 122;
@@ -133,11 +158,12 @@
             this.plate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.plate.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.plate.ForeColor = System.Drawing.Color.Red;
-            this.plate.Location = new System.Drawing.Point(629, 53);
+            this.plate.Location = new System.Drawing.Point(629, 87);
             this.plate.Multiline = true;
             this.plate.Name = "plate";
             this.plate.Size = new System.Drawing.Size(179, 22);
             this.plate.TabIndex = 118;
+            this.plate.TextChanged += new System.EventHandler(this.plate_TextChanged);
             // 
             // label5
             // 
@@ -145,7 +171,7 @@
             this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label5.Font = new System.Drawing.Font("MS PGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(627, 81);
+            this.label5.Location = new System.Drawing.Point(627, 115);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 13);
             this.label5.TabIndex = 120;
@@ -154,7 +180,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Red;
-            this.panel5.Location = new System.Drawing.Point(629, 77);
+            this.panel5.Location = new System.Drawing.Point(629, 111);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(179, 1);
             this.panel5.TabIndex = 119;
@@ -169,8 +195,9 @@
             this.state.Items.AddRange(new object[] {
             "",
             "Disponible",
-            "Rentado"});
-            this.state.Location = new System.Drawing.Point(424, 53);
+            "Rentado",
+            "Mantenimiento"});
+            this.state.Location = new System.Drawing.Point(424, 87);
             this.state.Name = "state";
             this.state.Size = new System.Drawing.Size(179, 25);
             this.state.TabIndex = 115;
@@ -179,7 +206,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Red;
-            this.panel8.Location = new System.Drawing.Point(424, 77);
+            this.panel8.Location = new System.Drawing.Point(424, 111);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(179, 1);
             this.panel8.TabIndex = 117;
@@ -190,7 +217,7 @@
             this.label13.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label13.Font = new System.Drawing.Font("MS PGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(421, 81);
+            this.label13.Location = new System.Drawing.Point(421, 115);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(50, 13);
             this.label13.TabIndex = 116;
@@ -205,7 +232,7 @@
             this.marcas.ForeColor = System.Drawing.Color.Red;
             this.marcas.Items.AddRange(new object[] {
             ""});
-            this.marcas.Location = new System.Drawing.Point(226, 52);
+            this.marcas.Location = new System.Drawing.Point(226, 86);
             this.marcas.Name = "marcas";
             this.marcas.Size = new System.Drawing.Size(179, 25);
             this.marcas.TabIndex = 109;
@@ -217,7 +244,7 @@
             this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.Font = new System.Drawing.Font("MS PGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(223, 81);
+            this.label3.Location = new System.Drawing.Point(223, 115);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 114;
@@ -226,7 +253,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Red;
-            this.panel3.Location = new System.Drawing.Point(226, 77);
+            this.panel3.Location = new System.Drawing.Point(226, 111);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(179, 1);
             this.panel3.TabIndex = 113;
@@ -268,7 +295,7 @@
             this.Estado,
             this.KM});
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(59, 112);
+            this.dataGridView1.Location = new System.Drawing.Point(59, 146);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -289,61 +316,8 @@
             dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(925, 343);
+            this.dataGridView1.Size = new System.Drawing.Size(925, 322);
             this.dataGridView1.TabIndex = 108;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Lucida Console", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(55, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 19);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Vehiculos";
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(38)))), ((int)(((byte)(81)))));
-            this.button1.FlatAppearance.BorderSize = 2;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(28)))), ((int)(((byte)(71)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(38)))), ((int)(((byte)(81)))));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(897, 496);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(134, 37);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Volver";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1043, 55);
-            this.panel1.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Lucida Console", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(463, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 19);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Consultas";
             // 
             // ID
             // 
@@ -433,29 +407,58 @@
             this.KM.Name = "KM";
             this.KM.ReadOnly = true;
             // 
-            // panel4
+            // label2
             // 
-            this.panel4.BackColor = System.Drawing.Color.Red;
-            this.panel4.Location = new System.Drawing.Point(226, 77);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(151, 1);
-            this.panel4.TabIndex = 123;
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Lucida Console", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(463, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(117, 19);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Vehiculos";
             // 
-            // panel6
+            // button1
             // 
-            this.panel6.BackColor = System.Drawing.Color.Red;
-            this.panel6.Location = new System.Drawing.Point(424, 77);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(151, 1);
-            this.panel6.TabIndex = 125;
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(38)))), ((int)(((byte)(81)))));
+            this.button1.FlatAppearance.BorderSize = 2;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(28)))), ((int)(((byte)(71)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(38)))), ((int)(((byte)(81)))));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(897, 496);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(134, 37);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Volver";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panel7
+            // panel1
             // 
-            this.panel7.BackColor = System.Drawing.Color.Red;
-            this.panel7.Location = new System.Drawing.Point(424, 77);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(179, 1);
-            this.panel7.TabIndex = 124;
+            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1043, 55);
+            this.panel1.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Lucida Console", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(463, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 19);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Consultas";
             // 
             // ConsultasVehiculos
             // 

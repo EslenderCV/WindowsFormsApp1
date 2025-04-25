@@ -322,6 +322,8 @@ namespace WindowsFormsApp1
         }
         private void label1_Click(object sender, EventArgs e)
         {
+            marcas.Text = dataGridView1.SelectedCells[1].Value.ToString();
+            modelos.Text = dataGridView1.SelectedCells[2].Value.ToString();
             year.Text = dataGridView1.SelectedCells[3].Value.ToString();
             chas.Text = dataGridView1.SelectedCells[4].Value.ToString();
             plate.Text = dataGridView1.SelectedCells[5].Value.ToString();

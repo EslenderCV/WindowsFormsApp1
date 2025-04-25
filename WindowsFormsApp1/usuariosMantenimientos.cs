@@ -6,10 +6,54 @@ namespace WindowsFormsApp1
 {
     public partial class usuariosMantenimientos : Form
     {
+        bool editing = false;
+        string editingID = "";
+
         string connectionString = "Data Source=DESKTOP-I9FPIBD;Initial Catalog=RentACar;Integrated Security=True";
-        public usuariosMantenimientos()
+        HomeScreen screen;
+        Form1 log;
+        public usuariosMantenimientos(HomeScreen screen, Form1 log)
         {
+            this.screen = screen;
+            this.log = log;
             InitializeComponent();
+            loadGridView();
+            
+        }
+
+        private void loadGridView()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM Usuarios", conn))
+                    {
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+
+                            dataGridView1.Rows.Add(reader["login_usuario"], reader["nombre_usuario"], reader["apellidos_usuario"], reader["email_usuario"],
+                                Convert.ToInt32(reader["nivel_acceso"].ToString()) == 1 ? "Estandar" : "Administrador");
+                        }
+
+                        reader.Close();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+
+                }
+            }
         }
 
 
@@ -46,11 +90,18 @@ namespace WindowsFormsApp1
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand($"INSERT INTO Usuarios VALUES('{user}', '{password}', {access}, '{first}', '{last}', '{email}')", conn);
+                    string insert = $"INSERT INTO Usuarios VALUES('{user}', '{password}', {access}, '{first}', '{last}', '{email}')";
+                    string update = $"UPDATE Usuarios SET pass_usuario = '{password}', nivel_acceso = {access}, nombre_usuario = '{first}', apellidos_usuario = '{last}', email_usuario = '{email}' WHERE login_usuario = '{user}'";
+
+                    SqlCommand cmd = new SqlCommand(editing ? update : insert, conn);
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Usuario ingresado correctamente!");
+                    string mess = editing ? "actualizado" : "ingresado";
 
+                    MessageBox.Show($"Usuario {mess} correctamente!");
+                    dataGridView1.Rows.Clear();
+                    dataGridView1.Refresh();
+                    loadGridView();
                     clear();
                 }
                 catch (Exception ex)
@@ -81,6 +132,67 @@ namespace WindowsFormsApp1
             last.Text = "";
             email.Text = "";
             access.Text = "";
+            editing = false;
+            editingID = "";
+        }
+
+        private void loginUser_Leave(object sender, EventArgs e)
+        {
+        }
+
+        private void loginUser_TextChanged(object sender, EventArgs e)
+        {
+            
+            bool isAuthenticated = false;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(1) FROM Usuarios WHERE login_usuario = @username";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@username", loginUser.Text);
+
+                try
+                {
+                    conn.Open();
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    if (count == 1)
+                        isAuthenticated = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+
+            if (isAuthenticated)
+            {
+                DialogResult dialogResult = MessageBox.Show("Usuario existente, desea iniciar sesion?", "??", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    log.Show();
+                    screen.Close();
+                    this.Close();
+                }
+            }
+
+            
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+            loginUser.Text = dataGridView1.SelectedCells[0].Value.ToString();
+            name.Text = dataGridView1.SelectedCells[1].Value.ToString();
+            last.Text = dataGridView1.SelectedCells[2].Value.ToString();
+            email.Text = dataGridView1.SelectedCells[3].Value.ToString();
+            access.SelectedItem = dataGridView1.SelectedCells[4].Value.ToString();
+            editing = true;
+            editingID = dataGridView1.SelectedCells[0].Value.ToString();
         }
     }
 

@@ -42,7 +42,7 @@ namespace WindowsFormsApp1
                     MessageBox.Show("Error: " + ex.Message);
                 }
                 finally
-                {
+                {  
                     conn.Close();
 
                 }

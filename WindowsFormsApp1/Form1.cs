@@ -70,7 +70,7 @@ namespace WindowsFormsApp1
         }
 
         private void login()
-        {
+        {  
             string username = textBox1.Text;
             string password = textBox2.Text;
 
@@ -78,7 +78,7 @@ namespace WindowsFormsApp1
             {
                 if (AuthenticateUser(username, password))
                 {
-                    new HomeScreen(username).Show();
+                    new HomeScreen(username, this).Show();
                     this.Hide();
                 }
                 else

@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsApp1
 {
@@ -257,6 +249,92 @@ namespace WindowsFormsApp1
                     }
                 }
             } else
+            {
+                loadGridView();
+            }
+        }
+
+        private void plate_TextChanged(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+
+            if (!string.IsNullOrEmpty(plate.Text))
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        dataGridView1.Rows.Clear();
+
+
+                        using (SqlCommand cmd = new SqlCommand($"SELECT * FROM Vehiculos WHERE (lower(placa) LIKE '%{plate.Text}%');", conn))
+                        {
+                            SqlDataReader reader = cmd.ExecuteReader();
+
+                            while (reader.Read())
+                            {
+                                dataGridView1.Rows.Add(reader["id_vehiculo"], getMarca(Convert.ToInt32(reader["marca"])), getModelo(Convert.ToInt32(reader["modelo"])), reader["año"],
+                                    reader["chasis"], reader["placa"], reader["color"], reader["tipo_vehiculo"], reader["precio_diario"],
+                                    reader["estado"], reader["kilometraje"]);
+                            }
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+            }
+            else
+            {
+                loadGridView();
+            }
+        }
+
+        private void price_TextChanged(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+
+            if (!string.IsNullOrEmpty(price.Text))
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        dataGridView1.Rows.Clear();
+
+
+                        using (SqlCommand cmd = new SqlCommand($"SELECT * FROM Vehiculos WHERE (lower(precio_diario) LIKE '%{Convert.ToInt32(price.Text)}%');", conn))
+                        {
+                            SqlDataReader reader = cmd.ExecuteReader();
+
+                            while (reader.Read())
+                            {
+                                dataGridView1.Rows.Add(reader["id_vehiculo"], getMarca(Convert.ToInt32(reader["marca"])), getModelo(Convert.ToInt32(reader["modelo"])), reader["año"],
+                                    reader["chasis"], reader["placa"], reader["color"], reader["tipo_vehiculo"], reader["precio_diario"],
+                                    reader["estado"], reader["kilometraje"]);
+                            }
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+            }
+            else
             {
                 loadGridView();
             }

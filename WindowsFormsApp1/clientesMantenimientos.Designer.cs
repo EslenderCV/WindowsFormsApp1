@@ -34,6 +34,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.type = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phonenum = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.docNum = new System.Windows.Forms.TextBox();
@@ -59,14 +67,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
@@ -81,7 +81,8 @@
             this.type.Items.AddRange(new object[] {
             "",
             "Cedula",
-            "Pasaporte"});
+            "Pasaporte",
+            "RNC"});
             this.type.Location = new System.Drawing.Point(20, 383);
             this.type.Name = "type";
             this.type.Size = new System.Drawing.Size(179, 25);
@@ -144,6 +145,67 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(925, 343);
             this.dataGridView1.TabIndex = 142;
+            // 
+            // ID
+            // 
+            this.ID.FillWeight = 26.32913F;
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 8;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.MinimumWidth = 8;
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 8;
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            // 
+            // Telefono
+            // 
+            this.Telefono.FillWeight = 80F;
+            this.Telefono.HeaderText = "Telefono";
+            this.Telefono.MinimumWidth = 8;
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
+            // 
+            // Direccion
+            // 
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.MinimumWidth = 8;
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
+            // 
+            // Nacimiento
+            // 
+            this.Nacimiento.FillWeight = 60F;
+            this.Nacimiento.HeaderText = "Fecha";
+            this.Nacimiento.MinimumWidth = 8;
+            this.Nacimiento.Name = "Nacimiento";
+            this.Nacimiento.ReadOnly = true;
+            // 
+            // TipoDoc
+            // 
+            this.TipoDoc.FillWeight = 60F;
+            this.TipoDoc.HeaderText = "Documento";
+            this.TipoDoc.MinimumWidth = 8;
+            this.TipoDoc.Name = "TipoDoc";
+            this.TipoDoc.ReadOnly = true;
+            // 
+            // NumDoc
+            // 
+            this.NumDoc.FillWeight = 90F;
+            this.NumDoc.HeaderText = "Numero";
+            this.NumDoc.MinimumWidth = 8;
+            this.NumDoc.Name = "NumDoc";
+            this.NumDoc.ReadOnly = true;
             // 
             // phonenum
             // 
@@ -423,67 +485,6 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // ID
-            // 
-            this.ID.FillWeight = 26.32913F;
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 8;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.MinimumWidth = 8;
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 8;
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            // 
-            // Telefono
-            // 
-            this.Telefono.FillWeight = 80F;
-            this.Telefono.HeaderText = "Telefono";
-            this.Telefono.MinimumWidth = 8;
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
-            // 
-            // Direccion
-            // 
-            this.Direccion.HeaderText = "Direccion";
-            this.Direccion.MinimumWidth = 8;
-            this.Direccion.Name = "Direccion";
-            this.Direccion.ReadOnly = true;
-            // 
-            // Nacimiento
-            // 
-            this.Nacimiento.FillWeight = 60F;
-            this.Nacimiento.HeaderText = "Fecha";
-            this.Nacimiento.MinimumWidth = 8;
-            this.Nacimiento.Name = "Nacimiento";
-            this.Nacimiento.ReadOnly = true;
-            // 
-            // TipoDoc
-            // 
-            this.TipoDoc.FillWeight = 60F;
-            this.TipoDoc.HeaderText = "Documento";
-            this.TipoDoc.MinimumWidth = 8;
-            this.TipoDoc.Name = "TipoDoc";
-            this.TipoDoc.ReadOnly = true;
-            // 
-            // NumDoc
-            // 
-            this.NumDoc.FillWeight = 90F;
-            this.NumDoc.HeaderText = "Numero";
-            this.NumDoc.MinimumWidth = 8;
-            this.NumDoc.Name = "NumDoc";
-            this.NumDoc.ReadOnly = true;
-            // 
             // clientesMantenimientos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -518,7 +519,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "clientesMantenimientos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "clientesMantenimientos";

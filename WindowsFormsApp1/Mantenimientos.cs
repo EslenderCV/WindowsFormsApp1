@@ -7,8 +7,9 @@ namespace WindowsFormsApp1
     public partial class Mantenimientos: Form
     {
         HomeScreen screeen;
+        Form1 log;
 
-        public Mantenimientos(HomeScreen N, string access)
+        public Mantenimientos(HomeScreen N, string access, Form1 log)
         {
             InitializeComponent();
 
@@ -23,12 +24,13 @@ namespace WindowsFormsApp1
             }
 
             screeen = N;
+            this.log = log;
         }
 
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            openForm(new usuariosMantenimientos());
+            openForm(new usuariosMantenimientos(screeen, log));
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -90,6 +92,11 @@ namespace WindowsFormsApp1
         private void pictureBox7_Click(object sender, EventArgs e)
         {
             openForm(new ofertasMantenimientos());
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            openForm(new mantMantenimientos());
         }
     }
 }
